@@ -30,6 +30,9 @@ RUN chmod -R 755 /boot /boot.d/*
 # Nice place for your settings
 VOLUME ["/mail_settings"]
 
+# TLS cert and key go here
+VOLUME ["/mail_tls"]
+
 # Volume to store email
 VOLUME ["/vmail"]
 

@@ -3,15 +3,15 @@ echo "Running `basename "$0"`"
 
 # Check if we have SSL certificates in config, otherwise copy it there
 # First the key file
-if [ -f /mail_settings/ssl-cert-snakeoil.key ]; then
-	cp /mail_settings/ssl-cert-snakeoil.key /etc/ssl/private/ssl-cert-snakeoil.key
+if [ -f /mail_tls/tls.key ]; then
+	cp /mail_tls/tls.key /etc/ssl/private/ssl-cert-snakeoil.key
 else
-	cp /etc/ssl/private/ssl-cert-snakeoil.key /mail_settings/ssl-cert-snakeoil.key
+	cp /etc/ssl/private/ssl-cert-snakeoil.key /mail_tls/tls.key
 fi
 
 # Then the pem file
-if [ -f /mail_settings/ssl-cert-snakeoil.pem ]; then
-	cp /mail_settings/ssl-cert-snakeoil.pem /etc/ssl/certs/ssl-cert-snakeoil.pem
+if [ -f /mail_tls/tls.pem ]; then
+	cp /mail_tls/tls.pem /etc/ssl/certs/ssl-cert-snakeoil.pem
 else
-	cp /etc/ssl/certs/ssl-cert-snakeoil.pem /mail_settings/ssl-cert-snakeoil.pem
+	cp /etc/ssl/certs/ssl-cert-snakeoil.pem /mail_tls/tls.pem
 fi

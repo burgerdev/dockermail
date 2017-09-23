@@ -4,7 +4,7 @@ export CONFIG_FILE=/mail_settings/config.json
 
 if [ -f "$CONFIG_FILE" ]; then
   # Run boot scripts
-  for SCRIPT in ./boot.d/*
+  for SCRIPT in $(find ./boot.d -type f | sort)
   do
     if [ -f "$SCRIPT" -a -x "$SCRIPT" ]; then
       "$SCRIPT"

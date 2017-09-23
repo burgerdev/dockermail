@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN locale-gen en_GB en_GB.UTF-8 && dpkg-reconfigure locales
+# RUN locale-gen en_GB en_GB.UTF-8 && dpkg-reconfigure locales
 
 # Prerequisites
 RUN apt-get update && apt-get install -y \
@@ -35,7 +35,7 @@ VOLUME ["/vmail"]
 
 # Add user vmail that ownes mail
 RUN groupadd -g 5000 vmail
-RUN useradd -g vmail -u 5000 vmail -d /vmail -m
+RUN useradd -g vmail -u 5000 vmail -d /vmail -M
 
 EXPOSE 25 143 587 993
 CMD /boot; service postfix start; service dovecot start; rsyslogd -n
